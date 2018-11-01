@@ -11,6 +11,7 @@ dill==0.2.8.2
 en-core-web-sm==2.0.0
 Flask==1.0.2
 Flask-RESTful==0.3.6
+gunicorn==19.9.0
 idna==2.7
 itsdangerous==1.1.0
 Jinja2==2.10
@@ -23,6 +24,7 @@ murmurhash==1.0.1
 numpy==1.15.3
 plac==0.9.6
 preshed==2.0.1
+psycopg2==2.7.5
 pycparser==2.19
 pyOpenSSL==18.0.0
 PySocks==1.6.8
