@@ -21,12 +21,12 @@ This is the directory structure you should have once you've cloned this reposito
     │   ├── args.pkl
     │   └── TEXT.pkl
     ├── evaluate.py
+    ├── LICENSE.md
     ├── model/
     │   ├── bimpm.py
     │   ├── layers.py
     │   └── utils.py
     ├── README.md
-    ├── requirements.txt
     ├── saved_models/
     └── setup.sh* 
 
