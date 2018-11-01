@@ -1,18 +1,15 @@
-"""Constructs data processors and loaders for Quora and SNLI sentences,
+"""Constructs data processors and loaders for App sentences,
 as well a container object, Args, to hold all arguments passed during
 training and evaluation script execution to initialize the BiMPM model.
 
 """
 
-import os
 from abc import ABC
 import dill as pickle
 
 import torch
 import torch.autograd
 from torchtext import data
-from torchtext import datasets
-from torchtext.vocab import GloVe
 
 
 class DataLoader(ABC):
@@ -94,140 +91,6 @@ class DataLoader(ABC):
             print(f'  epoch: {self.present_epoch+1}')
         self.last_epoch = self.present_epoch
         return True
-
-
-class SNLI(DataLoader):
-    """A data processor for SNLI data, which splits the original dataset
-    into a training, validation, and evaluation, and provides iterators.
-    Inherits from the DataLoader abstract class.
-
-    This data can be fed into the WordRepresentationLayer for the BiMPM model.
-
-    """
-
-    def __init__(self, args):
-        """Initialize the data loader, split data into train, valid, and
-        evaluation sets, and create iterators. Also create word and char
-        vocabulary objects as part of the preprocessing pipeline.
-
-        Parameters
-        ----------
-        args : Args
-            An object with all arguments for BiMPM model.
-
-        """
-        super().__init__(args)
-
-        # Define how input data should be processed
-        self.LABEL = data.LabelField()
-
-        self.train, self.valid, self.eval = datasets.SNLI.splits(
-            self.TEXT, self.LABEL)
-
-        self.TEXT.build_vocab(
-            self.train,
-            self.valid,
-            self.eval,
-            vectors=GloVe(name='840B', dim=300))
-
-        self.LABEL.build_vocab(self.train)
-
-        self.max_word_len = max([len(w) for w in self.TEXT.vocab.itos])
-        # Handle <pad> and <unk>
-        self.char_vocab = {'': 0}
-        self.word_chars = [[0] * self.max_word_len, [0] * self.max_word_len]
-
-        self.train_iter, self.valid_iter, self.eval_iter = \
-            data.BucketIterator.splits(
-                (self.train, self.valid, self.eval),
-                batch_sizes=[args.batch_size] * 3,
-                device=args.device)
-
-        self.train_iter.repeat = True  # Allow default unlimited epochs
-
-        self.build_char_vocab()
-
-
-class Quora(DataLoader):
-    """A data processor for Quora data, which splits the original dataset
-    into a training, validation, and evaluation, and provides iterators.
-    Inherits from the DataLoader class.
-
-    This data can be fed into the WordRepresentationLayer for the BiMPM model.
-
-    """
-
-    def __init__(self, args):
-        """Initialize the data loader, split data into train, valid, and
-        evaluation sets, and create iterators. Also create word and char
-        vocabulary objects as part of the preprocessing pipeline.
-
-        Parameters
-        ----------
-        args : Args
-            An object with all arguments for BiMPM model.
-
-        """
-        super().__init__(args)
-
-        # Define how input data should be processed
-        self.RAW = data.RawField()
-        self.RAW.is_target = False  # Fix for PyTorch handling of Raw Fields
-        self.TEXT = data.Field(batch_first=True)
-        self.LABEL = data.LabelField()
-
-        self.fields = [('label', self.LABEL), ('q1', self.TEXT),
-                       ('q2', self.TEXT), ('id', self.RAW)]
-
-        # Handle data paths
-        path = './travis' if args.travis else './data/quora'
-        if args.travis:
-            train_path = 'travis_train.tsv'
-            valid_path = 'travis_dev.tsv'
-            test_path = 'travis_test.tsv'
-        elif args.research:
-            train_path = 'toy_train.tsv'
-            valid_path = 'toy_dev.tsv'
-            test_path = 'toy_test.tsv'
-        else:
-            train_path = 'train.tsv'
-            valid_path = 'dev.tsv'
-            test_path = 'test.tsv'
-
-        self.train, self.valid, self.eval = data.TabularDataset.splits(
-            path=path,
-            train=train_path,
-            validation=valid_path,
-            test=test_path,
-            format='tsv',
-            fields=self.fields)
-
-        self.TEXT.build_vocab(
-            self.train,
-            self.valid,
-            self.eval,
-            vectors=GloVe(name='840B', dim=300))
-        pickle.dump(self.TEXT, open('../data/TEXT.pkl', 'wb'))
-
-        self.LABEL.build_vocab(self.train)
-
-        self.max_word_len = max([len(w) for w in self.TEXT.vocab.itos])
-        # Handle <pad> and <unk>
-        self.char_vocab = {'': 0}
-        self.word_chars = [[0] * self.max_word_len, [0] * self.max_word_len]
-
-        self.sort_key = lambda x: data.interleave_keys(len(x.q1), len(x.q2))
-
-        self.train_iter, self.valid_iter, self.eval_iter = \
-            data.BucketIterator.splits(
-                (self.train, self.valid, self.eval),
-                batch_sizes=[args.batch_size] * 3,
-                device=args.device,
-                sort_key=self.sort_key)
-
-        self.train_iter.repeat = True  # Allow default unlimited epochs
-
-        self.build_char_vocab()
 
 
 class AppData(DataLoader):

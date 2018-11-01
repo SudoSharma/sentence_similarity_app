@@ -9,7 +9,7 @@ import torch
 from torch import nn
 
 from model.bimpm import BiMPM
-from model.utils import AppData, SNLI, Quora, Sentence, Args
+from model.utils import AppData, Sentence, Args
 
 
 def main(shutdown: ("shutdown system after training", 'flag', 's'),
