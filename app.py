@@ -11,19 +11,11 @@ import numpy as np
 app = Flask(__name__)
 api = Api(app)
 
-# Load model args file, have to create from evaluate.py if not available
-try:
-    model_args = pickle.load(open('./data/args.pkl', 'rb'))
-except FileNotFoundError as e:
-    print(e)
-    print("No pickle file found for args.",
-          "Please manually run evaluate.py in app mode",
-          "to initialize arguments first.")
-    raise
+model_args = pickle.load(open('./data/args.pkl', 'rb'))
 model_args.device = torch.device('cuda:0' if torch.cuda.
                                  is_available() else 'cpu')
 
-# Load arguments, q1 and q2 for setence 1 and 2
+# Load arguments, q1 and q2 for sentence 1 and 2
 parser = reqparse.RequestParser()
 parser.add_argument('q1', required=True, help="Sentence 1 cannot be blank!")
 parser.add_argument('q2', required=True, help="Sentence 2 cannot be blank!")
@@ -54,7 +46,7 @@ class PredictSentenceSimilarity(Resource):
         model = load_model(model_args, model_data)  # Load model params 
 
         # Calculate probability distribution of classes
-        preds = evaluate(model, model_args, model_data, mode='app').numpy()
+        preds = evaluate(model, model_args, model_data).numpy()
         def softmax(x):
             return np.exp(x) / np.sum(np.exp(x), axis=0)
 

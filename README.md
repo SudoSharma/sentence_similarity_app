@@ -1,5 +1,5 @@
 # BiMPM Application
-This repository hosts an application built using a very minimal version of the [full BiMPM implementation](https://github.com/SudoSharma/bimpm_implementation). It is very useful for testing pairs of queries. I've cleaned away all the extraneous code that was initially important for training the model in the `model/utils.py` script, and going forward, will only update the `model/layers.py` script or the `data/args.pkl` file with the results of my experiments in the other repository. 
+This repository hosts an application built using a very minimal version of the [full BiMPM implementation](https://github.com/SudoSharma/bimpm_implementation). It is very useful for testing pairs of queries. I've cleaned away all the extraneous code that was initially important for training the model in the `model/utils.py` and `evaluate.py` scripts, and going forward, will only update the `model/layers.py` script or the `data/args.pkl` file with the results of my experiments in the other repository. 
 
 # Requirements
 ## Environment
@@ -12,7 +12,8 @@ The `setup.sh` script will create an `bimpm` conda environment for the CPU.  It 
 - No GPU required. Runs fine on a CPU. 
 
 ## Instructions
-This is the directory structure.
+This is the directory structure you should have once the git repository is cloned. 
+
     $ tree -I __pycache__ -F -n
     .
     ├── app.py
