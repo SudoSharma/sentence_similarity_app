@@ -8,7 +8,6 @@ cryptography==2.3.1
 cymem==2.0.2
 cytoolz==0.9.0.1
 dill==0.2.8.2
-en-core-web-sm==2.0.0
 Flask==1.0.2
 Flask-RESTful==0.3.6
 gunicorn==19.9.0
@@ -42,3 +41,4 @@ ujson==1.35
 urllib3==1.24
 Werkzeug==0.14.1
 wrapt==1.10.11
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz
