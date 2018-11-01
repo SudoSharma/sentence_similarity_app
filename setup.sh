@@ -9,17 +9,17 @@ conda update -q conda
 conda create -q -n bimpm_app python=3.6
 source activate bimpm_app 
 
-# Remove en_core_sm_md from requirement.
-sed -i "/en-core/ d" requirements.txt  # Remove model download
-
 # Install environment requirements
 echo "Installing environment requirements..."
-pip install -q -r requirements.txt
-
-# link spacy
-conda install spacy
+pip install --upgrade pip
+conda install cython -q
+conda install plac -q
+conda install pytorch-cpu -c pytorch -q
+pip install tensorboardX
+conda install dill -q
+pip install torchtext
+conda install spacy -q
 pip install "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz"
-conda install pytorch-cpu -c pytorch --yes -q
 python -m spacy link en_core_web_sm en --force
 
 echo "Successfully installed environment!"
