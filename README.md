@@ -1,9 +1,9 @@
 # BiMPM Application
-This repository hosts an application built using a very minimal version of the [full BiMPM implementation](https://github.com/SudoSharma/bimpm_implementation). It is very useful for testing pairs of queries. I've cleaned away all the extraneous code that was initially important for training the model in the `model/utils.py` and `evaluate.py` scripts, and going forward, will only update the `model/layers.py` script or the `data/args.pkl` file with the results of my experiments in the other repository. 
+This repository hosts an application built using a very minimal version of the [full BiMPM implementation](https://github.com/SudoSharma/bimpm_implementation). It is very useful for testing pairs of queries. I've cleaned away all the extraneous code that was initially important for training the model in the `model/utils.py` and `evaluate.py` scripts, and going forward, will only update the `model/layers.py` script or the `data/args.pkl` file with the results of my experiments on the original implementation.
 
 # Requirements
 ## Environment
-The `setup.sh` script will create an `bimpm_app` conda environment for the CPU.  It requires you to specify the specific distribution of Anaconda you have on your computer or VM, so please be sure to edit this in the script. Run the script with the following command:
+The `setup.sh` script will create an `bimpm_app` conda environment for the CPU.  It requires you to specify the distribution of Anaconda you have on your computer or VM, so please be sure to edit this in the script. Run the script with the following command:
 
     ./setup.sh
 
@@ -18,7 +18,7 @@ Note that if you are having difficulties with spaCy, please run the following co
 - No GPU required. Runs fine on a CPU. 
 
 ## Instructions
-This is the directory structure you should have once the git repository is cloned. 
+This is the directory structure you should have once you've cloned this repository. 
 
     $ tree -I __pycache__ -F -n
     .
@@ -36,7 +36,7 @@ This is the directory structure you should have once the git repository is clone
     ├── saved_models/
     └── setup.sh* 
 
-Note that I've pruned the actual file in the `saved_models/`folder in this tree because this model will be updated with the results of experiments on the full implementation.
+Note that I've removed the pre-trained model in the `saved_models/`folder in this directory tree diagram because it will be periodically updated with new models.
 
 ## Testing
 In order to test out the application, launch the `app.py` file:
