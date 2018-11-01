@@ -7,12 +7,6 @@ The `setup.sh` script will create an `bimpm_app` conda environment for the CPU. 
 
     ./setup.sh
 
-Note that if you are having difficulties with spaCy, please run the following commands again from the script:
-    
-    conda install spacy
-    pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz
-    python -m spacy link en_core_web_sm en --force
-
 ## System
 - OS: Ubuntu 16.04 LTS (64 bit)
 - No GPU required. Runs fine on a CPU. 
