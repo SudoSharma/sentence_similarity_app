@@ -56,3 +56,24 @@ This will use Flask to serve an endpoint for a RESTful API, which you can query 
         "pos_probability": 0.2274,
         "prediction": "not similar"
     }
+
+### Test 1
+#### Does the network understand word order?
+    curl -X GET http://127.0.0.1:5000/ -d q1="my dog ate my homework" -d q2="my homework ate my dog"
+
+### Test 2
+#### Does the network understand pronouns? 
+    curl -X GET http://127.0.0.1:5000/ -d q1="how old are you?" -d q2="how old am I?"
+
+### Test 3
+#### Does the network understand semantics?
+    curl -X GET http://127.0.0.1:5000/ -d q1="where is the moon?" -d q2="where is my car?"
+
+    curl -X GET http://127.0.0.1:5000/ -d q1="can I bring my cat to the hospital?" -d q2="can i bring my dog to the hospital?"
+
+    curl -X GET http://127.0.0.1:5000/ -d q1="can I bring my cat to the hospital?" -d q2="will I be able to take my cat to the hospital?"
+
+    curl -X GET http://127.0.0.1:5000/ -d q1="how far is it from earth to the moon?" -d q2="what's the distance from earth to the moon?"
+
+    curl -X GET http://127.0.0.1:5000/ -d q1="how far is it from earth to the moon?" -d q2="what's the distance from earth to mars?"
+
