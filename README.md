@@ -26,7 +26,8 @@ This is the directory structure.
     │   └── utils.py
     ├── README.md
     ├── requirements.txt
-    └── saved_models/
+    ├── saved_models/
+    └── setup.sh* 
 
 Note that I've pruned the actual file in the `saved_models/`folder in this tree because this model will be updated with the results of experiments on the full implementation.
 
