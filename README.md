@@ -3,9 +3,15 @@ This repository hosts an application built using a very minimal version of the [
 
 # Requirements
 ## Environment
-The `setup.sh` script will create an `bimpm` conda environment for the CPU.  It requires you to specify the specific distribution of Anaconda you have on your computer or VM, so please be sure to edit this in the script. This script can replace a vaniilla `requirements.txt` file with a processed one that removes the en-core-web-sm model from spaCy requirement with a direct release download url because of a peculiarity with spaCy. It is commented out for now, but you can enable it again if you need to. Run the script with the following command:
+The `setup.sh` script will create an `bimpm_app` conda environment for the CPU.  It requires you to specify the specific distribution of Anaconda you have on your computer or VM, so please be sure to edit this in the script. Run the script with the following command:
 
     ./setup.sh
+
+Note that if you are having difficulties with spaCy, please run the following commands again from the script:
+    
+    conda install spacy
+    pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz
+    python -m spacy link en_core_web_sm en --force
 
 ## System
 - OS: Ubuntu 16.04 LTS (64 bit)
