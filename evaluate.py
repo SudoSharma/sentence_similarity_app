@@ -15,9 +15,6 @@ def evaluate(model, args, model_data):
         An object with all arguments for BiMPM model.
     model_data : AppData
         A data loading object which returns word vectors and sentences.
-    mode : str, optional
-        Indicates whether to use `valid`, `eval`, or `app` data
-        (default is 'eval').
 
     Returns
     -------

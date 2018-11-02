@@ -69,5 +69,5 @@ This will use Flask to serve an endpoint for a RESTful API, which you can query 
 
     curl -X GET http://127.0.0.1:5000/ -d q1="how far is it from earth to the moon?" -d q2="what's the distance from earth to the moon?"
 
-    curl -X GET http://127.0.0.1:5000/ -d q1="how far is it from earth to the moon?" -d q2="what's the distance from earth to mars?"
+    curl -X GET http://127.0.0.1:5000/ -d q1="how far is it from earth to the moon?" -d q2="how far is it from earth to mars?"
 
