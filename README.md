@@ -1,4 +1,4 @@
-# BiMPM Application
+# Sentence Similarity Application
 This is an application to test how similar two sentences are, based on the BiMPM model by Wang et al., with a few enhancements. For more details, please check out my [implementation](https://github.com/SudoSharma/bimpm_implementation) of the original paper. 
 I've essentially modified the archicture of my original implementaion to accept a pair of sentences instead of a batch of many pairs, and am serving up a RESTful API endpoint using Flask for inference. 
 
