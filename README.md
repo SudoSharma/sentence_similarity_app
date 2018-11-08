@@ -1,15 +1,16 @@
 # BiMPM Application
-This repository hosts an application built using a very minimal version of the [full BiMPM implementation](https://github.com/SudoSharma/bimpm_implementation). It is very useful for testing pairs of queries. I've cleaned away all the extraneous code that was initially important for training the model in the `model/utils.py` and `evaluate.py` scripts, and going forward, will only update the `model/layers.py` script or the `data/args.pkl` file with the results of my experiments on the original implementation.
+This is an application to test how similar two sentences are, based on the BiMPM model by Wang et al., with a few enhancements. For more details, please check out my [implementation](https://github.com/SudoSharma/bimpm_implementation) of the original paper. 
+I've essentially modified the archicture of my original implementaion to accept a pair of sentences instead of a batch of many pairs, and am serving up a RESTful API endpoint using Flask for inference. 
 
 # Requirements
 ## Environment
-The `setup.sh` script will create an `bimpm_app` conda environment for the CPU.  It requires you to specify the distribution of Anaconda you have on your computer or VM, so please be sure to edit this in the script. Run the script with the following command:
+The `setup.sh` script will create a `sentence_similarity_app` conda environment.  It will require you to specify the distribution of Anaconda you have on your computer or VM, so please be sure to edit this in the script. Run the script with the following command:
 
     ./setup.sh
 
 ## System
 - OS: Ubuntu 16.04 LTS (64 bit)
-- No GPU required. Runs fine on a CPU. 
+- No GPU required or utilized.
 
 ## Instructions
 This is the directory structure you should have once you've cloned this repository. 

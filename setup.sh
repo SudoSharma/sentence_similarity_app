@@ -3,11 +3,11 @@ echo "Setting up CPU environment..."
 
 # Be sure to change the 'miniconda3' to your flavor of Anaconda distribution
 export PATH="$HOME/miniconda3/bin:$PATH"
-echo "Setting up 'bimpm_app' conda environment..."
+echo "Setting up 'sentence_similarity_app' conda environment..."
 conda config --set always_yes yes
 conda update -q conda
-conda create -q -n bimpm_app python=3.6
-source activate bimpm_app 
+conda create -q -n sentence_similarity_app python=3.6
+source activate sentence_similarity_app 
 
 # Install environment requirements
 echo "Installing environment requirements..."
@@ -23,4 +23,4 @@ pip install "https://github.com/explosion/spacy-models/releases/download/en_core
 python -m spacy link en_core_web_sm en --force
 
 echo "Successfully installed environment!"
-echo "Activate your environment with 'source activate bimpm_app'."
+echo "Activate your environment with 'source activate sentence_similarity_app'."
