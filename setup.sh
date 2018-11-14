@@ -2,7 +2,8 @@
 echo "Setting up CPU environment..."
 
 # Be sure to change the 'miniconda3' to your flavor of Anaconda distribution
-export PATH="$HOME/miniconda3/bin:$PATH"
+export CONDA="miniconda3"
+export PATH="$HOME/$CONDA/bin:$PATH"
 echo "Setting up 'sentence_similarity_app' conda environment..."
 conda config --set always_yes yes
 conda update -q conda
