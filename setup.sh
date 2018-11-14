@@ -14,6 +14,7 @@ source activate sentence_similarity_app
 echo "Installing environment requirements..."
 pip install --upgrade pip
 conda install cython -q
+pip install Flask -q
 conda install plac -q
 conda install pytorch-cpu -c pytorch -q
 pip install tensorboardX
