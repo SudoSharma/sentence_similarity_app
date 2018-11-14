@@ -39,6 +39,7 @@ pip install --upgrade pip -q
 conda install pytorch-cpu -c pytorch -q
 conda install cython -q
 pip install Flask -q
+pip install flask_restful -q
 conda install plac -q
 pip install tensorboardX
 conda install dill -q

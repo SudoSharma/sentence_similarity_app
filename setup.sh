@@ -15,6 +15,7 @@ echo "Installing environment requirements..."
 pip install --upgrade pip
 conda install cython -q
 pip install Flask -q
+pip install flask_restful -q
 conda install plac -q
 conda install pytorch-cpu -c pytorch -q
 pip install tensorboardX
