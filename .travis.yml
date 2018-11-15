@@ -16,5 +16,8 @@ branches:
 
 install: source travis/install.sh
 script: 
-    - python app.py
+    - python app.py &
+    - sleep 5
     - curl -X GET http://127.0.0.1:5000/ -d q1="how old are you?" -d q2="howold am i?"
+    - sleep 5
+    - exit 

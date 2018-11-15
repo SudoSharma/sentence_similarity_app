@@ -74,3 +74,5 @@ This will use Flask to serve an endpoint for a RESTful API, which you can query 
 
     curl -X GET http://127.0.0.1:5000/ -d q1="how far is it from earth to the moon?" -d q2="how far is it from earth to mars?"
 
+# References
+1. Wang, Zhiguo, Wael Hamza, and Radu Florian. "Bilateral Multi-Perspective Matching for Natural Language Sentences." Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence, July 14, 2017. Accessed October 10, 2018. doi:10.24963/ijcai.2017/579. 
