@@ -41,7 +41,6 @@ conda install cython -q
 pip install Flask -q
 pip install flask_restful -q
 conda install plac -q
-pip install tensorboardX
 conda install dill -q
 pip install torchtext -q
 conda install spacy -q
