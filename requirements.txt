@@ -18,7 +18,7 @@ pycparser==2.19
 pytz==2018.7
 requests==2.20.1
 six==1.11.0
-torch==0.4.1
+torch=http://download.pytorch.org/whl/cpu/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
 torchtext==0.3.1
 tqdm==4.28.1
 urllib3==1.24.1
