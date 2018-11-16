@@ -28,7 +28,7 @@ class DataLoader(ABC):
 
         """
         self.args = args
-        self.TEXT = data.Field(batch_first=True)
+        self.TEXT = data.Field(batch_first=True, tokenize='spacy')
         self.last_epoch = -1  # Allow atleast one epoch
 
     def words_to_chars(self, batch):
