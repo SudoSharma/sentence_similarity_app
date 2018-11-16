@@ -18,7 +18,6 @@ pip install Flask -q
 pip install flask_restful -q
 conda install plac -q
 conda install pytorch-cpu -c pytorch -q
-pip install tensorboardX
 conda install dill -q
 pip install torchtext
 conda install spacy -q
