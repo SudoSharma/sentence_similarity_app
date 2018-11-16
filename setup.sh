@@ -13,16 +13,12 @@ source activate sentence_similarity_app
 # Install environment requirements
 echo "Installing environment requirements..."
 pip install --upgrade pip
-conda install cython -q
-pip install Flask -q
-pip install flask_restful -q
-conda install plac -q
 conda install pytorch-cpu -c pytorch -q
-conda install dill -q
-pip install torchtext
-conda install spacy -q
-pip install "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz"
-python -m spacy link en_core_web_sm en --force
+pip install dill -q
+pip install torchtext -q
+pip install six -q
+pip install flask -q
+pip install flask_restful -q
 
 echo "Successfully installed environment!"
 echo "Activate your environment with 'source activate sentence_similarity_app'."

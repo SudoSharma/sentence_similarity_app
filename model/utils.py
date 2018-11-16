@@ -4,7 +4,6 @@ training and evaluation script execution to initialize the BiMPM model.
 
 """
 
-from abc import ABC
 import dill as pickle
 
 import torch
@@ -12,24 +11,42 @@ import torch.autograd
 from torchtext import data
 
 
-class DataLoader(ABC):
-    """A data loader abstract class, which initializes a field, and prepares
-    methods for converting words to chars and building a character vocab.
+class AppData:
+    """A data processor for App data and generates a single example and
+    batch for inference.
 
     """
 
-    def __init__(self, args):
-        """Initialize the data loader, store args, and initialize epochs.
+    def __init__(self, args, app_data=None):
+        """Initialize the data loader, create a dataset and a batch.
 
         Parameters
         ----------
         args : Args
             An object with all arguments for BiMPM model.
+        app_data : list, optional
+            A Python list with `q1` and `q2` as keys for two queries
+            (default is None).
 
         """
         self.args = args
-        self.TEXT = data.Field(batch_first=True, tokenize='spacy')
-        self.last_epoch = -1  # Allow atleast one epoch
+
+        self.TEXT = pickle.load(open('./data/TEXT.pkl', 'rb'))
+
+        self.fields = [('q1', self.TEXT), ('q2', self.TEXT)]
+
+        self.max_word_len = max([len(w) for w in self.TEXT.vocab.itos])
+        # Handle <pad> and <unk>
+        self.char_vocab = {'': 0}
+        self.word_chars = [[0] * self.max_word_len, [0] * self.max_word_len]
+
+        self.example = [
+            data.Example.fromlist(data=app_data, fields=self.fields)
+        ]
+        self.dataset = data.Dataset(self.example, self.fields)
+        self.batch = data.Batch(self.example, self.dataset, device=args.device)
+
+        self.build_char_vocab()
 
     def words_to_chars(self, batch):
         """Convert batch of sentences to appropriately shaped array for
@@ -68,67 +85,6 @@ class DataLoader(ABC):
             # Pad words until max word length
             chars.extend([0] * (self.max_word_len - len(word)))
             self.word_chars.append(chars)
-
-    def keep_training(self, iterator):
-        """Track batch iteration and epochs.
-
-        Parameters
-        ----------
-        iterator : Iterator
-            An iterator object which provides batches of data, and keeps a
-            track of the epochs.
-
-        Returns
-        -------
-        bool
-            False if all epochs are complete, else True.
-
-        """
-        self.present_epoch = int(iterator.epoch)
-        if self.present_epoch == self.args.epoch:
-            return False
-        if self.present_epoch > self.last_epoch:
-            print(f'  epoch: {self.present_epoch+1}')
-        self.last_epoch = self.present_epoch
-        return True
-
-
-class AppData(DataLoader):
-    """A data processor for App data, which inherits from the Quora, and
-    DataLoader class and generates a single example and batch for inference.
-
-    """
-
-    def __init__(self, args, app_data=None):
-        """Initialize the data loader, create a dataset and a batch.
-
-        Parameters
-        ----------
-        args : Args
-            An object with all arguments for BiMPM model.
-        app_data : list, optional
-            A Python list with `q1` and `q2` as keys for two queries
-            (default is None).
-
-        """
-        super().__init__(args)
-
-        self.TEXT = pickle.load(open('./data/TEXT.pkl', 'rb'))
-
-        self.fields = [('q1', self.TEXT), ('q2', self.TEXT)]
-
-        self.max_word_len = max([len(w) for w in self.TEXT.vocab.itos])
-        # Handle <pad> and <unk>
-        self.char_vocab = {'': 0}
-        self.word_chars = [[0] * self.max_word_len, [0] * self.max_word_len]
-
-        self.example = [
-            data.Example.fromlist(data=app_data, fields=self.fields)
-        ]
-        self.dataset = data.Dataset(self.example, self.fields)
-        self.batch = data.Batch(self.example, self.dataset, device=args.device)
-
-        self.build_char_vocab()
 
 
 class Sentence:
@@ -210,7 +166,7 @@ class Args:
         access during runtime.
 
         Parameters
-        ---------
+        ----------
         args_dict : dict
             A dictionary of all arguments passed to the training or
             evaluation script.
