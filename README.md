@@ -15,7 +15,7 @@ The `setup.sh` script will create a `sentence_similarity_app` conda environment.
 - No GPU required or utilized.
 
 ## Instructions
-This is the directory structure you should have once you've cloned this repository. 
+This is the directory structure you should have once you've cloned this repository. You'll have to make sure you have [git lfs](https://git-lfs.github.com/) installed before cloning.
 
     $ tree -I __pycache__ -F -n
     .
