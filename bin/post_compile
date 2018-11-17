@@ -1,2 +1,2 @@
-wget -qO- https://github.com/git-lfs/git-lfs/releases/download/v2.6.0/git-lfs-linux-arm64-v2.6.0.tar.gz
-mv git-lfs-*/git-lfs /usr/bin/ && rm -rf git-lfs-* && git lfs install & git lfs pull
+wget -qO- https://github.com/git-lfs/git-lfs/releases/download/v2.6.0/git-lfs-linux-arm64-v2.6.0.tar.gz | tar xz
+mv git-lfs-*/git-lfs /usr/bin/ && rm -rf git-lfs-* && git lfs install && git lfs pull
