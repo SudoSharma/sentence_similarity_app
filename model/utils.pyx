@@ -33,9 +33,9 @@ class AppData:
 
         self.TEXT = pickle.load(open('./data/TEXT.pkl', 'rb'))
 
-        self.fields = [('q1', self.TEXT), ('q2', self.TEXT)]
+        self.fields = (('q1', self.TEXT), ('q2', self.TEXT))
 
-        self.max_word_len = max([len(w) for w in self.TEXT.vocab.itos])
+        self.max_word_len = max(len(w) for w in self.TEXT.vocab.itos)
         # Handle <pad> and <unk>
         self.char_vocab = {'': 0}
         self.word_chars = [[0] * self.max_word_len, [0] * self.max_word_len]
