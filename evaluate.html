@@ -340,8 +340,8 @@ body.cython { font-family: courier; font-size: 12; }
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">07</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">08</span>: </pre>
-<pre class="cython line score-55" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">09</span>: def evaluate(model, args, model_data):</pre>
-<pre class='cython code score-55 '>/* Python wrapper */
+<pre class="cython line score-57" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">09</span>: def evaluate(model, args, model_data):</pre>
+<pre class='cython code score-57 '>/* Python wrapper */
 static PyObject *__pyx_pw_8evaluate_1evaluate(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static char __pyx_doc_8evaluate_evaluate[] = "Test the BiMPM model on App data.\n\n    Parameters\n    ----------\n    args : Args\n        An object with all arguments for BiMPM model.\n    model_data : AppData\n        A data loading object which returns word vectors and sentences.\n\n    Returns\n    -------\n    preds : Tensor\n        A length-2 PyTorch tensor of predictions for similar or asimilar class.\n\n    ";
 static PyMethodDef __pyx_mdef_8evaluate_1evaluate = {"evaluate", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8evaluate_1evaluate, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8evaluate_evaluate};
@@ -447,7 +447,7 @@ static PyObject *__pyx_pf_8evaluate_evaluate(CYTHON_UNUSED PyObject *__pyx_self,
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple_);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple_);
 /* … */
-  __pyx_t_1 = PyCFunction_NewEx(&amp;__pyx_mdef_8evaluate_1evaluate, NULL, __pyx_n_s_evaluate);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_NewEx</span>(&amp;__pyx_mdef_8evaluate_1evaluate, 0, __pyx_n_s_evaluate, NULL, __pyx_n_s_evaluate, __pyx_d, ((PyObject *)__pyx_codeobj__2));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_evaluate, __pyx_t_1) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 9, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
@@ -680,8 +680,8 @@ static PyObject *__pyx_pf_8evaluate_evaluate(CYTHON_UNUSED PyObject *__pyx_self,
   goto __pyx_L0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">31</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">32</span>: </pre>
-<pre class="cython line score-43" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">33</span>: def load_model(args, model_data):</pre>
-<pre class='cython code score-43 '>/* Python wrapper */
+<pre class="cython line score-45" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">33</span>: def load_model(args, model_data):</pre>
+<pre class='cython code score-45 '>/* Python wrapper */
 static PyObject *__pyx_pw_8evaluate_3load_model(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static char __pyx_doc_8evaluate_2load_model[] = "Load the trained BiMPM model for testing\n\n    Parameters\n    ----------\n    args : Args\n        An object with all arguments for BiMPM model\n    model_data : AppData\n        A data loading object which returns word vectors and sentences.\n\n    Returns\n    -------\n    model : BiMPM\n        A new model initialized with the weights from the provided trained\n        model.\n    ";
 static PyMethodDef __pyx_mdef_8evaluate_3load_model = {"load_model", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8evaluate_3load_model, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8evaluate_2load_model};
@@ -771,7 +771,7 @@ static PyObject *__pyx_pf_8evaluate_2load_model(CYTHON_UNUSED PyObject *__pyx_se
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__3);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__3);
 /* … */
-  __pyx_t_1 = PyCFunction_NewEx(&amp;__pyx_mdef_8evaluate_3load_model, NULL, __pyx_n_s_evaluate);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_NewEx</span>(&amp;__pyx_mdef_8evaluate_3load_model, 0, __pyx_n_s_load_model, NULL, __pyx_n_s_evaluate, __pyx_d, ((PyObject *)__pyx_codeobj__4));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_load_model, __pyx_t_1) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 33, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
