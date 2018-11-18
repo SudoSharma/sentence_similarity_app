@@ -21,7 +21,7 @@ files = [
 ]
 s3 = boto3.resource('s3')
 for s3_file in files:
-    s3.Object(S43_BUCKET, s3_file).download_file(f'./data/{s3_file}')
+    s3.Object(S3_BUCKET, s3_file).download_file(f'./data/{s3_file}')
 
 model_args = pickle.load(open('./data/args.pkl', 'rb'))
 model_args.device = torch.device('cuda:0' if torch.cuda.
