@@ -23,6 +23,9 @@ class CharacterRepresentationEncoder(nn.Module):
         """
         super(CharacterRepresentationEncoder, self).__init__()
 
+        cdef int char_hidden_size
+        cdef object char_encoder
+        cdef object lstm
         self.char_hidden_size = args.char_hidden_size
 
         self.char_encoder = nn.Embedding(
@@ -50,6 +53,7 @@ class CharacterRepresentationEncoder(nn.Module):
             char_hidden_size).
 
         """
+        cdef int batch_size, seq_len, max_word_len = 0
         batch_size, seq_len, max_word_len = chars.size()
         chars = chars.view(batch_size * seq_len, max_word_len)
 
@@ -79,6 +83,9 @@ class WordRepresentationLayer(nn.Module):
         """
         super(WordRepresentationLayer, self).__init__()
 
+        cdef float drop
+        cdef object word_encoder
+        cdef object char_encoder
         self.drop = args.dropout
 
         self.word_encoder = nn.Embedding(args.word_vocab_size, args.word_dim)
@@ -144,6 +151,9 @@ class ContextRepresentationLayer(nn.Module):
         """
         super(ContextRepresentationLayer, self).__init__()
 
+        cdef float drop
+        cdef int input_size
+        cdef object lstm
         self.drop = args.dropout
         self.input_size = args.word_dim + args.char_hidden_size
 
@@ -209,6 +219,10 @@ class MatchingLayer(nn.Module):
         """
         super(MatchingLayer, self).__init__()
 
+        cdef float drop
+        cdef int hidden_size
+        cdef int l
+        cdef object W
         self.drop = args.dropout
         self.hidden_size = args.hidden_size
         self.l = args.num_perspectives
@@ -586,6 +600,9 @@ class AggregationLayer(nn.Module):
         """
         super(AggregationLayer, self).__init__()
 
+        cdef int hidden_size
+        cdef float drop
+        cdef object lstm
         self.hidden_size = args.hidden_size
         self.drop = args.dropout
         self.lstm = nn.LSTM(
@@ -657,6 +674,9 @@ class PredictionLayer(nn.Module):
         """
         super(PredictionLayer, self).__init__()
 
+        cdef float drop
+        cdef object hidden_layer
+        cdef object output_layer
         self.drop = args.dropout
         self.hidden_layer = nn.Linear(args.hidden_size * 4,
                                       args.hidden_size * 2)
