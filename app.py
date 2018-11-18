@@ -7,9 +7,21 @@ from flask_restful import reqparse, Api, Resource
 import torch
 from model.utils import AppData
 import numpy as np
+import boto3
+import os
 
 app = Flask(__name__)
 api = Api(app)
+
+# Store s3 data. Comment out this section until 'model_args' if not on heroku
+S3_BUCKET = os.environ.get('S3_BUCKET')
+files = [
+    './data/args.pkl', './data/TEXT.pkl',
+    './saved_models/bimpm_quora_17_04_11.pt'
+]
+s3 = boto3.resource('s3')
+for s3_file in files:
+    s3.Object(S43_BUCKET, s3_file).download_file(f'./data/{s3_file}')
 
 model_args = pickle.load(open('./data/args.pkl', 'rb'))
 model_args.device = torch.device('cuda:0' if torch.cuda.
@@ -43,10 +55,11 @@ class PredictSentenceSimilarity(Resource):
         app_data = [q1, q2]
 
         model_data = AppData(model_args, app_data)
-        model = load_model(model_args, model_data)  # Load model params 
+        model = load_model(model_args, model_data)  # Load model params
 
         # Calculate probability distribution of classes
         preds = evaluate(model, model_args, model_data).numpy()
+
         def softmax(x):
             return np.exp(x) / np.sum(np.exp(x), axis=0)
 
