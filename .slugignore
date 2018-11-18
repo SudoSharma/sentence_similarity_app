@@ -1,0 +1,4 @@
+# ignore these files from slug compilation
+data/args.pkl
+data/TEXT.pkl
+saved_models/bimpm_quora_17_04_11.pt
