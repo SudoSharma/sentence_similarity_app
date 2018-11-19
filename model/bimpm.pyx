@@ -26,6 +26,11 @@ class BiMPM(nn.Module):
 
         self.args = args
 
+        cdef object w_layer
+        cdef object c_layer
+        cdef object m_layer
+        cdef object a_layer
+        cdef object p_layer
         self.w_layer = L.WordRepresentationLayer(args, model_data)
         self.c_layer = L.ContextRepresentationLayer(args)
         self.m_layer = L.MatchingLayer(args)
@@ -48,6 +53,7 @@ class BiMPM(nn.Module):
             containing the class probalities for each sentence in the batch.
 
         """
+        cdef object match_vec
         p, q = self.w_layer(p), self.w_layer(q)  # Create word embeddings
         p, q = self.c_layer(p), self.c_layer(q)  # Incorporate context
         p, q = self.m_layer(p, q)  # Compare contexts

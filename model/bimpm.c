@@ -1418,20 +1418,20 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
  * 
  *         self.args = args             # <<<<<<<<<<<<<<
  * 
- *         self.w_layer = L.WordRepresentationLayer(args, model_data)
+ *         cdef object w_layer
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_args, __pyx_v_args) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
 
-  /* "bimpm.pyx":29
- *         self.args = args
- * 
+  /* "bimpm.pyx":34
+ *         cdef object a_layer
+ *         cdef object p_layer
  *         self.w_layer = L.WordRepresentationLayer(args, model_data)             # <<<<<<<<<<<<<<
  *         self.c_layer = L.ContextRepresentationLayer(args)
  *         self.m_layer = L.MatchingLayer(args)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_L); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_L); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_WordRepresentationLayer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_WordRepresentationLayer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -1449,7 +1449,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_args, __pyx_v_model_data};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -1457,13 +1457,13 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_args, __pyx_v_model_data};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -1474,24 +1474,24 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_INCREF(__pyx_v_model_data);
     __Pyx_GIVEREF(__pyx_v_model_data);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_model_data);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_w_layer, __pyx_t_1) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_w_layer, __pyx_t_1) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bimpm.pyx":30
- * 
+  /* "bimpm.pyx":35
+ *         cdef object p_layer
  *         self.w_layer = L.WordRepresentationLayer(args, model_data)
  *         self.c_layer = L.ContextRepresentationLayer(args)             # <<<<<<<<<<<<<<
  *         self.m_layer = L.MatchingLayer(args)
  *         self.a_layer = L.AggregationLayer(args)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_L); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_L); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ContextRepresentationLayer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ContextRepresentationLayer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -1506,22 +1506,22 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_2, __pyx_v_args) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_args);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_c_layer, __pyx_t_1) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_c_layer, __pyx_t_1) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bimpm.pyx":31
+  /* "bimpm.pyx":36
  *         self.w_layer = L.WordRepresentationLayer(args, model_data)
  *         self.c_layer = L.ContextRepresentationLayer(args)
  *         self.m_layer = L.MatchingLayer(args)             # <<<<<<<<<<<<<<
  *         self.a_layer = L.AggregationLayer(args)
  *         self.p_layer = L.PredictionLayer(args)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_L); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_L); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_MatchingLayer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_MatchingLayer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -1536,22 +1536,22 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_v_args) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_args);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_m_layer, __pyx_t_1) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_m_layer, __pyx_t_1) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bimpm.pyx":32
+  /* "bimpm.pyx":37
  *         self.c_layer = L.ContextRepresentationLayer(args)
  *         self.m_layer = L.MatchingLayer(args)
  *         self.a_layer = L.AggregationLayer(args)             # <<<<<<<<<<<<<<
  *         self.p_layer = L.PredictionLayer(args)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_L); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_L); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_AggregationLayer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_AggregationLayer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -1566,22 +1566,22 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_2, __pyx_v_args) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_args);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_a_layer, __pyx_t_1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_a_layer, __pyx_t_1) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "bimpm.pyx":33
+  /* "bimpm.pyx":38
  *         self.m_layer = L.MatchingLayer(args)
  *         self.a_layer = L.AggregationLayer(args)
  *         self.p_layer = L.PredictionLayer(args)             # <<<<<<<<<<<<<<
  * 
  *     def forward(self, p, q):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_L); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_L); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_PredictionLayer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_PredictionLayer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -1596,10 +1596,10 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_v_args) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_args);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_p_layer, __pyx_t_1) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_p_layer, __pyx_t_1) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "bimpm.pyx":14
@@ -1626,7 +1626,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM___init__(CYTHON_UNUSED PyObject *__pyx_s
   return __pyx_r;
 }
 
-/* "bimpm.pyx":35
+/* "bimpm.pyx":40
  *         self.p_layer = L.PredictionLayer(args)
  * 
  *     def forward(self, p, q):             # <<<<<<<<<<<<<<
@@ -1670,17 +1670,17 @@ static PyObject *__pyx_pw_5bimpm_5BiMPM_3forward(PyObject *__pyx_self, PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_p)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("forward", 1, 3, 3, 1); __PYX_ERR(0, 35, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("forward", 1, 3, 3, 1); __PYX_ERR(0, 40, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_q)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("forward", 1, 3, 3, 2); __PYX_ERR(0, 35, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("forward", 1, 3, 3, 2); __PYX_ERR(0, 40, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "forward") < 0)) __PYX_ERR(0, 35, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "forward") < 0)) __PYX_ERR(0, 40, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -1695,7 +1695,7 @@ static PyObject *__pyx_pw_5bimpm_5BiMPM_3forward(PyObject *__pyx_self, PyObject 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("forward", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 35, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("forward", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 40, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("bimpm.BiMPM.forward", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1709,7 +1709,7 @@ static PyObject *__pyx_pw_5bimpm_5BiMPM_3forward(PyObject *__pyx_self, PyObject 
 }
 
 static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_p, PyObject *__pyx_v_q) {
-  PyObject *__pyx_v_match_vec = NULL;
+  PyObject *__pyx_v_match_vec = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1722,14 +1722,14 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_INCREF(__pyx_v_p);
   __Pyx_INCREF(__pyx_v_q);
 
-  /* "bimpm.pyx":51
- * 
+  /* "bimpm.pyx":57
  *         """
+ *         cdef object match_vec
  *         p, q = self.w_layer(p), self.w_layer(q)  # Create word embeddings             # <<<<<<<<<<<<<<
  *         p, q = self.c_layer(p), self.c_layer(q)  # Incorporate context
  *         p, q = self.m_layer(p, q)  # Compare contexts
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_w_layer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_w_layer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1743,10 +1743,10 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_p) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_p);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_w_layer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_w_layer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -1760,7 +1760,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_q) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_q);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF_SET(__pyx_v_p, __pyx_t_1);
@@ -1768,14 +1768,14 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_DECREF_SET(__pyx_v_q, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "bimpm.pyx":52
- *         """
+  /* "bimpm.pyx":58
+ *         cdef object match_vec
  *         p, q = self.w_layer(p), self.w_layer(q)  # Create word embeddings
  *         p, q = self.c_layer(p), self.c_layer(q)  # Incorporate context             # <<<<<<<<<<<<<<
  *         p, q = self.m_layer(p, q)  # Compare contexts
  *         match_vec = self.a_layer(p, q)  # Aggregate context vectors
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_c_layer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_c_layer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -1789,10 +1789,10 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_v_p) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_p);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_c_layer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_c_layer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -1806,7 +1806,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_q) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_q);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF_SET(__pyx_v_p, __pyx_t_2);
@@ -1814,14 +1814,14 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_DECREF_SET(__pyx_v_q, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "bimpm.pyx":53
+  /* "bimpm.pyx":59
  *         p, q = self.w_layer(p), self.w_layer(q)  # Create word embeddings
  *         p, q = self.c_layer(p), self.c_layer(q)  # Incorporate context
  *         p, q = self.m_layer(p, q)  # Compare contexts             # <<<<<<<<<<<<<<
  *         match_vec = self.a_layer(p, q)  # Aggregate context vectors
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_m_layer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_m_layer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_5 = 0;
@@ -1838,7 +1838,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_p, __pyx_v_q};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -1846,13 +1846,13 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_p, __pyx_v_q};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -1863,7 +1863,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_INCREF(__pyx_v_q);
     __Pyx_GIVEREF(__pyx_v_q);
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_5, __pyx_v_q);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -1874,7 +1874,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 53, __pyx_L1_error)
+      __PYX_ERR(0, 59, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -1887,15 +1887,15 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_4);
     #else
-    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = Py_TYPE(__pyx_t_3)->tp_iternext;
@@ -1903,7 +1903,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_GOTREF(__pyx_t_2);
     index = 1; __pyx_t_4 = __pyx_t_6(__pyx_t_3); if (unlikely(!__pyx_t_4)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_3), 2) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_3), 2) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
     __pyx_t_6 = NULL;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     goto __pyx_L4_unpacking_done;
@@ -1911,7 +1911,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_6 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 53, __pyx_L1_error)
+    __PYX_ERR(0, 59, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
   __Pyx_DECREF_SET(__pyx_v_p, __pyx_t_2);
@@ -1919,14 +1919,14 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_DECREF_SET(__pyx_v_q, __pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "bimpm.pyx":54
+  /* "bimpm.pyx":60
  *         p, q = self.c_layer(p), self.c_layer(q)  # Incorporate context
  *         p, q = self.m_layer(p, q)  # Compare contexts
  *         match_vec = self.a_layer(p, q)  # Aggregate context vectors             # <<<<<<<<<<<<<<
  * 
  *         return self.p_layer(match_vec)  # Generate task-specific probabilities
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_a_layer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_a_layer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_2 = NULL;
   __pyx_t_5 = 0;
@@ -1943,7 +1943,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_p, __pyx_v_q};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -1951,13 +1951,13 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_p, __pyx_v_q};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -1968,7 +1968,7 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
     __Pyx_INCREF(__pyx_v_q);
     __Pyx_GIVEREF(__pyx_v_q);
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_5, __pyx_v_q);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
@@ -1976,13 +1976,13 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   __pyx_v_match_vec = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "bimpm.pyx":56
+  /* "bimpm.pyx":62
  *         match_vec = self.a_layer(p, q)  # Aggregate context vectors
  * 
  *         return self.p_layer(match_vec)  # Generate task-specific probabilities             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_p_layer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_p_layer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -1996,14 +1996,14 @@ static PyObject *__pyx_pf_5bimpm_5BiMPM_2forward(CYTHON_UNUSED PyObject *__pyx_s
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_3, __pyx_v_match_vec) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_match_vec);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "bimpm.pyx":35
+  /* "bimpm.pyx":40
  *         self.p_layer = L.PredictionLayer(args)
  * 
  *     def forward(self, p, q):             # <<<<<<<<<<<<<<
@@ -2135,22 +2135,22 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """Initialize the BiMPM model architecture.
  * 
  */
-  __pyx_tuple__2 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_args, __pyx_n_s_model_data); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(8, __pyx_n_s_self, __pyx_n_s_args, __pyx_n_s_model_data, __pyx_n_s_w_layer, __pyx_n_s_c_layer, __pyx_n_s_m_layer, __pyx_n_s_a_layer, __pyx_n_s_p_layer); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_model_bimpm_pyx, __pyx_n_s_init, 14, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(3, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_model_bimpm_pyx, __pyx_n_s_init, 14, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 14, __pyx_L1_error)
 
-  /* "bimpm.pyx":35
+  /* "bimpm.pyx":40
  *         self.p_layer = L.PredictionLayer(args)
  * 
  *     def forward(self, p, q):             # <<<<<<<<<<<<<<
  *         """Defines forward pass computations flowing from inputs to
  *         outputs in the network.
  */
-  __pyx_tuple__4 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_p, __pyx_n_s_q, __pyx_n_s_match_vec); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_p, __pyx_n_s_q, __pyx_n_s_match_vec); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_model_bimpm_pyx, __pyx_n_s_forward, 35, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_model_bimpm_pyx, __pyx_n_s_forward, 40, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2498,16 +2498,16 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "bimpm.pyx":35
+  /* "bimpm.pyx":40
  *         self.p_layer = L.PredictionLayer(args)
  * 
  *     def forward(self, p, q):             # <<<<<<<<<<<<<<
  *         """Defines forward pass computations flowing from inputs to
  *         outputs in the network.
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5bimpm_5BiMPM_3forward, 0, __pyx_n_s_BiMPM_forward, NULL, __pyx_n_s_bimpm, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5bimpm_5BiMPM_3forward, 0, __pyx_n_s_BiMPM_forward, NULL, __pyx_n_s_bimpm, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_forward, __pyx_t_4) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_forward, __pyx_t_4) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "bimpm.pyx":7
