@@ -53,7 +53,7 @@ class CharacterRepresentationEncoder(nn.Module):
             char_hidden_size).
 
         """
-        cdef int batch_size, seq_len, max_word_len = 0
+        cdef int batch_size, seq_len, max_word_len
         batch_size, seq_len, max_word_len = chars.size()
         chars = chars.view(batch_size * seq_len, max_word_len)
 
@@ -126,6 +126,8 @@ class WordRepresentationLayer(nn.Module):
             word_dim + char_hidden_size).
 
         """
+        cdef object words
+        cdef object chars
         words = self.word_encoder(p['words'])
         chars = self.char_encoder(p['chars'])
         p = torch.cat([words, chars], dim=-1)
@@ -223,12 +225,13 @@ class MatchingLayer(nn.Module):
         cdef int hidden_size
         cdef int l
         cdef object W
+        cdef int i
         self.drop = args.dropout
         self.hidden_size = args.hidden_size
         self.l = args.num_perspectives
         self.W = nn.ParameterList([
             nn.Parameter(torch.rand(self.l, self.hidden_size))
-            for _ in range(8)
+            for i in range(8)
         ])
 
     def dropout(self, tensor):
@@ -539,7 +542,10 @@ class MatchingLayer(nn.Module):
             A list of PyTorch Tensors of size (batch_size, seq_len, l*8).
 
         """
-
+        cdef object full_p2q_fw, pool_p_fw, att_p2mean_fw, att_p2max_fw
+        cdef object full_p2q_bw, pool_p_bw, att_p2mean_bw, att_p2max_bw
+        cdef object full_q2p_fw, pool_q_fw, att_q2mean_fw, att_q2max_fw
+        cdef object full_q2p_bw, pool_q_bw, att_q2mean_bw, att_q2max_bw
         full_p2q_fw = self.full_match(p, q, W[0], 'fw')
         full_p2q_bw = self.full_match(p, q, W[1], 'bw')
         full_q2p_fw = self.full_match(q, p, W[0], 'fw')
@@ -713,6 +719,7 @@ class PredictionLayer(nn.Module):
             A PyTorch Tensor of size (batch_size, class_size).
 
         """
+        cdef object x
         x = F.relu(self.hidden_layer(match_vec))
 
         return self.output_layer(self.dropout(x))

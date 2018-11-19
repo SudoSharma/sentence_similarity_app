@@ -29,6 +29,15 @@ class AppData:
             (default is None).
 
         """
+        cdef object TEXT
+        cdef object fields
+        cdef object max_word_len
+        cdef object char_vocab
+        cdef object word_chars
+        cdef object example
+        cdef object dataset
+        cdef object batch
+
         self.args = args
 
         self.TEXT = pickle.load(open('./data/TEXT.pkl', 'rb'))
@@ -172,5 +181,6 @@ class Args:
             evaluation script.
 
         """
+        cdef object k, v
         for k, v in args_dict.items():
             setattr(self, k, v)

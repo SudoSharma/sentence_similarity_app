@@ -15,14 +15,14 @@ app = Flask(__name__)
 api = Api(app)
 
 # Store s3 data. Comment out this section until 'model_args' if not on heroku
-S3_BUCKET = os.environ.get('S3_BUCKET')
-files = [
-    'data/args.pkl', 'data/TEXT.pkl',
-    'saved_models/bimpm_quora_17_04_11.pt'
-]
-s3 = boto3.resource('s3')
-for s3_file in files:
-    s3.Object(S3_BUCKET, s3_file).download_file(s3_file)
+#S3_BUCKET = os.environ.get('S3_BUCKET')
+#files = [
+#    'data/args.pkl', 'data/TEXT.pkl',
+#    'saved_models/bimpm_quora_17_04_11.pt'
+#]
+#s3 = boto3.resource('s3')
+#for s3_file in files:
+#    s3.Object(S3_BUCKET, s3_file).download_file(s3_file)
 
 model_args = pickle.load(open('./data/args.pkl', 'rb'))
 model_args.device = torch.device('cuda:0' if torch.cuda.
