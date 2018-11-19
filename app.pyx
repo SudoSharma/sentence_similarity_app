@@ -51,8 +51,6 @@ class PredictSentenceSimilarity(Resource):
 
         """
         # Parse args and prep app_data
-        cdef object app_args, q1, q2, app_data, model_data, model
-        cdef object sm_preds, prediction
         app_args = parser.parse_args()
         q1, q2 = app_args['q1'], app_args['q2']
         app_data = [q1, q2]
