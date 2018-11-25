@@ -115,12 +115,11 @@ class Sentence:
             Choose either SNLI or Quora (default is 'quora').
 
         """
-        self.batch, self.model_data = batch, model_data
+        self.batch = batch
+        self.model_data = model_data
 
-        if data_type.lower() == 'snli':
-            self.p, self.q = 'premise', 'hypothesis'
-        else:
-            self.p, self.q = 'q1', 'q2'
+        self.p = 'q1'
+        self.q = 'q2'
 
     def process_batch(self, device):
         """Retrieve either SNLI or Quora data from each batch by label, and

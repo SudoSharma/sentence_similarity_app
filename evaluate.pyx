@@ -22,6 +22,7 @@ def evaluate(model, args, model_data):
         A length-2 PyTorch tensor of predictions for similar or asimilar class.
 
     """
+    cdef object preds, p, q
     model.eval()
 
     p, q = Sentence(model_data.batch, model_data,
@@ -46,6 +47,7 @@ def load_model(args, model_data):
         A new model initialized with the weights from the provided trained
         model.
     """
+    cdef object state_dict
     model = BiMPM(args, model_data)
     state_dict = torch.load(args.model_path, map_location=args.device)
     model.load_state_dict(state_dict)

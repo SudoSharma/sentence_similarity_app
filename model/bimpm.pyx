@@ -54,9 +54,12 @@ class BiMPM(nn.Module):
 
         """
         cdef object match_vec
-        p, q = self.w_layer(p), self.w_layer(q)  # Create word embeddings
-        p, q = self.c_layer(p), self.c_layer(q)  # Incorporate context
-        p, q = self.m_layer(p, q)  # Compare contexts
+        p = self.w_layer(p)  # Create word embeddings
+        p = self.w_layer(q)  # Create word embeddings
+        p = self.c_layer(p), self.c_layer(q)  # Incorporate context
+        q = self.c_layer(p), self.c_layer(q)  # Incorporate context
+        p = self.m_layer(p, q)  # Compare contexts
+        q = self.m_layer(p, q)  # Compare contexts
         match_vec = self.a_layer(p, q)  # Aggregate context vectors
 
         return self.p_layer(match_vec)  # Generate task-specific probabilities

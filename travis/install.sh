@@ -43,6 +43,3 @@ pip install flask_restful -q
 conda install plac -q
 conda install dill -q
 pip install torchtext -q
-conda install spacy -q
-pip install "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz" -q
-python -m spacy link en_core_web_sm en --force
