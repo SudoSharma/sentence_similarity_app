@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/SudoSharma/sentence_similarity_app.svg?branch=master)](https://travis-ci.com/SudoSharma/sentence_similarity_app)
-
 # Sentence Similarity Application
 This is an application to test how similar two sentences are, based on the BiMPM model by Wang et al., with a few enhancements. For more details, please check out my [implementation](https://github.com/SudoSharma/bimpm_implementation) of the original paper. 
 I've essentially modified the architecture of my original implementation to accept a pair of sentences instead of a batch, and am serving up a RESTful API endpoint using Flask for inference. 
